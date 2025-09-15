@@ -47,6 +47,44 @@ Node* lastDel(Node* head){
 
 }
 
+// del the el by pos
+Node* delPos(Node* head, int pos, int val){
+    //if(pos < 1) return head;
+    Node* temp = head;
+    if(pos == 1){
+        head = temp->next; // новая голова это след элемент
+        delete temp; // удаляем старую голову 
+        return head; // ну и вовзращем новую
+    }
+    
+    Node* prev = nullptr;
+    for(int i = 1; i < pos ;i++){
+       prev = temp; // прев указывает на предыдущий элемент
+       temp = temp->next; // тут просто сдвиг
+    }
+
+    prev->next = temp->next; // перепрыгиваем через удаляемый элемент
+    delete temp; //
+    return head;
+
+}
+// finding el in linked list 
+bool findEl(Node* head, int el){
+    Node* newEl = new Node(el);
+
+    Node* curr = head;
+    while(curr!=nullptr){
+        if(curr->data == el){
+            return true;
+        }
+        curr = curr->next;
+    }
+
+    return false;
+}
+
+
+
 void printList(Node* curr){
     while(curr!= nullptr){
         cout << curr->data << " ";
@@ -60,9 +98,13 @@ int main(){
     head->next = new Node(9);
     head->next->next = new Node(10);
     head->next->next->next = new Node(30);
+    int x = 10;
+    if(findEl(head,x)){
+        cout << "y";
+    };
 
-    head = lastDel(head);
-    printList(head);
+    //head = lastDel(head);
+    //printList(head);
 
 
 }
