@@ -1,78 +1,86 @@
 #include<iostream>
 using namespace std;
-//queue first in first out fifo
+
 
 class Node{
 public:
-   int data;
-   Node* next;
-
-   Node(int data){
-    this->data = data;
-    this->next = nullptr;
-   }
+    int data;
+    Node* next;
+    Node(int x){
+        data = x;
+        next = nullptr;
+    }
 };
-// front - first el
-// rare - last el
+
 class myQueue{
-    private:
+private:
     Node* front;
     Node* rear;
-    public:
-    myQueue(){
-        front = nullptr;
-        rear = nullptr;
+public:
+    myQueue() {
+        front = rear = nullptr;
+    }
+    void Enqueue(int new_d){
+        Node* newNode = new Node(new_d);
+        if(rear == nullptr){
+            rear = front = newNode;
+        }
+        rear->next = newNode;
+        rear = newNode;
+    }
+    void printQueue(){
+        Node* curr = front;
+        while (curr!=nullptr)
+        {
+            cout << curr->data << " ";
+            curr = curr->next;
+        }
+        cout << endl;
+    }
+    int Dequeue(){
+        Node* temp = front;
+        if(front == nullptr){
+            return -1;
+        }
+        int val = temp->data;
+        front = front->next;
+
+
+        if(front == nullptr){
+            rear = nullptr;
+        }
+        delete temp;
+        return val;
+
+    }
+
+    int peek(){
+        if(front == nullptr) return -1;
+        return front->data;
     }
 
     bool isEmpty(){
         return front == nullptr;
     }
-    // add at the end
-
-    // 10 20 30 40 50
-    void enqueue(int new_data){
-        Node* new_node = new Node(new_data);
-        if(isEmpty()){
-            front = rear = new_node;//front = rear = 10;
-            return;
-        }
-        rear->next = new_node;// 10-20
-        rear = new_node;
-    }
-
-    int dequeue(){
-        if(isEmpty()){
-            return -1;
-        }
-        Node* temp = front;// pointer
-        int val = temp->data;// 50
-        front = front->next;
-        if(front == nullptr) rear = nullptr;
-        delete temp;
-        return val;
-    }
-
-    int peek(){
-        if(isEmpty()){
-            return -1;
-        }
-        return front->data;
-    }
-
-
 
 };
 
 int main(){
     myQueue q;
-    q.enqueue(10);
-    q.enqueue(20);
-    q.enqueue(30);
+    q.Enqueue(10);
+    q.Enqueue(20);
+    q.Enqueue(30);
 
-    cout << q.dequeue() << endl; // 10
-    cout << q.dequeue() << endl; // 20
-    cout << q.dequeue() << endl; // 30
+    q.Dequeue();
+
+    cout << q.peek() << endl;
+
+
+    q.printQueue();
+
+    q.Dequeue();
+    q.Dequeue();
+
+    if(q.isEmpty()) cout << "yes";
     return 0;
-
-
 }
