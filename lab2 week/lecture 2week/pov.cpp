@@ -2,7 +2,6 @@
 #include<map>
 using namespace std;
 
-
 class Node{
     public:
     char data;
@@ -13,40 +12,38 @@ class Node{
     }
 };
 
-
 int main(){
     int t;
     cin >> t;
     while(t--){
         int n;
-        char ch;
         cin >> n;
-        map<char,int> m;
-        Node* head =nullptr;
+        Node* head = nullptr;
         Node* tail = nullptr;
-
+        map<char,int> fr;
         while(n--){
+            char ch;
             cin >> ch;
-            Node* new_node = new Node(ch);
+            Node* node = new Node(ch);
             if(head == nullptr){
-                head = tail = new_node;
+                head = tail = node;
             }else{
-                tail->next = new_node;
-                tail = new_node;
+                tail->next = node;
+                tail = node;
             }
-            
+            fr[ch]++;
             Node* cur = head;
-            m[ch]++;
-            while(cur!=nullptr && m[cur->data] > 1){
+            while(cur!=nullptr && fr[cur->data] < 2){
                 cur = cur->next;
             }
             if(cur == nullptr){
-                cout << -1  << " ";
+                cout << - 1 << " ";
             }else{
-                cout << cur->data << " "; 
+                cout << cur->data << " ";
             }
         }
         cout << endl;
-}
-return 0;
+
+    }
+    return 0;
 }
