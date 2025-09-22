@@ -121,11 +121,107 @@ using namespace std;
 //   return 0;
 // }
 //13
+// int main(){
+//     int k;
+//     cin >> k;
+//     if(k == 1) cout << "YES";
+//     else if(k%4  == 0) cout << "YES";
+//     else cout << "NO";
+//     return 0;
+// }
+//14
+// int main(){
+//     int a, b;
+//     cin >> a >> b;
+//     if(a == b && a==0) cout << "INF";
+//     else if(a!= b && a==0) cout << "NO";
+//     else if(a!=0){
+//         if(-b%a ==0){
+//             cout << -b/a;
+//         }else{
+//             cout << "NO";
+//         }
+//     } 
+
+// }
+
+//15
+// int main(){
+//     int a, b, c, d;
+//     cin >> a >> b >> c >> d;
+
+    
+
+//     int num1 = a*100 + b;
+//     int num2 = c*100 + d;
+
+//     int res = num1-num2;
+    
+//     int e = res/100;
+//     int f = res%100;
+//     cout << -e << " " << -f;
+
+
+    // int e = (-res)%100;
+    // if(e%100);
+    // if(e > 0){
+    //     if(e%100 == 0){
+    //     cout << e/100;
+    // }
+    // }
+    // if(e%100 == 0){
+    //     cout << e/100;
+    // }
+   // cout << e;
+
+    // if(res < 0) {
+    //     cout << res
+    // }
+    
+
+    //sdacha
+    // int e = a - c;
+    // if(e < 0){
+    //     cout << -e << " ";
+    // }else if(e > 0){
+    //     cout << e << " ";
+    // }else{
+    //     cout << e << " ";
+    // }
+
+    // int f = b - d;
+    // if(f < 0){
+    //     cout << -f << " ";
+    // }else if(f > 0){
+    //     cout << f << " ";
+    // }else{
+    //     cout << f;
+    // }
+//}
+
+// int main(){
+//     int n;
+//     cin >> n;
+
+//     if(n == 1|| n == 2 || n == 4 || n == 0) cout << "NO";
+//     else cout << "YES";
+// }
+
+//котлеты
 int main(){
-    int k;
-    cin >> k;
-    if(k == 1) cout << "YES";
-    else if(k%4  == 0) cout << "YES";
-    else cout << "NO";
-    return 0;
+    int k, m, n;
+    cin >> k >> m >> n;
+// k   сколько котлет влезает на сковородку.
+// m — сколько минут жарим одну сторону.
+// n — сколько котлет всего.
+
+    if(n<=k){
+        cout << 2*m;
+    }else{
+        int sides = 2*n; // допустим у 3 котлет 6 сторон
+        int res = (sides+k-1)/k;
+        cout << m*res;
+
+    }
+   
 }
