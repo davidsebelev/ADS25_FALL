@@ -2,8 +2,57 @@
 #include<map>
 #include<vector>
 #include<algorithm>
+#include<set>
 using namespace std;
 
+class Node{
+    public:
+    int data;
+    Node* next;
+    Node(int x){
+        data = x;
+        next = nullptr;
+    }
+};
+
+int main(){
+    int n;
+    cin >> n;
+    
+    Node* head = nullptr;
+    Node* tail = nullptr;
+    map<int, int> m;
+    int mx = 0;
+    while(n--){
+        int x;
+        cin >> x;
+        Node* node = new Node(x);
+
+        m[x]++;
+        mx = max(m[x],mx);
+        if(head == nullptr){
+            head = tail = node;
+
+        }else{
+            tail->next = node;
+            tail = node;
+        }
+    }
+
+    set<int> res;
+    Node* curr = head;
+    while(curr!= nullptr){
+        if(m[curr->data] == mx){
+            res.insert(curr->data);
+        }
+        curr = curr->next;
+    }
+
+    for(set<int>::reverse_iterator it = res.rbegin();it != res.rend();it++){
+        cout << *it << " ";
+    }
+
+}
 
 
 // // brute force 
@@ -53,31 +102,31 @@ using namespace std;
 
 //     return 0;
 // }
+// map arpr
+// int main(){
+//     int n;
+//     cin >> n;
+//     map<int,int> freq;
+//     int max_freq = 0;
+//     while(n--){
+//         int x;
+//         cin >> x;
+//         freq[x]++;
+//         if(max_freq < freq[x]){
+//             max_freq = freq[x];
+//         }
+//     }
 
-int main(){
-    int n;
-    cin >> n;
-    map<int,int> freq;
-    int max_freq = 0;
-    while(n--){
-        int x;
-        cin >> x;
-        freq[x]++;
-        if(max_freq < freq[x]){
-            max_freq = freq[x];
-        }
-    }
+//     vector<int> modes;
+//     for(map<int,int>::iterator it = freq.begin();it!=freq.end();it++){
+//         if(max_freq == it->second){
+//             modes.push_back(it->first);
+//         }
+//     }
 
-    vector<int> modes;
-    for(map<int,int>::iterator it = freq.begin();it!=freq.end();it++){
-        if(max_freq == it->second){
-            modes.push_back(it->first);
-        }
-    }
+//     reverse(modes.begin(),modes.end());
+//     for(int i = 0; i < modes.size();i++){
+//          cout << modes[i] << " ";
+//     }
 
-    reverse(modes.begin(),modes.end());
-    for(int i = 0; i < modes.size();i++){
-         cout << modes[i] << " ";
-    }
-
-}
+// }
