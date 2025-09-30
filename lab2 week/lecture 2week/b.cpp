@@ -51,6 +51,7 @@ int main(){
 
     while(n--){
         cin >> s;
+        //заполняем лист словами
         Node* node = new Node(s);
         if(head == nullptr){
             head = tail = node;
@@ -59,13 +60,15 @@ int main(){
             tail = node;
         }
     }
-
+    // выводим новое начало 
     Node* current = head;
     while(current != nullptr){
         if(cnt >= k) cout << current->data << " ";
         current = current->next;
         cnt++;
     }
+    // выводим новый конец
+
     cnt = 0;
     current = head;
     while(cnt < k){

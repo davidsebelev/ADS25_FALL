@@ -69,26 +69,6 @@ int main(){
     }
     
 
-    // int l1, r1, l2 , r2;
-    // cin >> l1 >> r1 >> l2 >> r2;
-
-
-    // int cnt1 = recount(a,l1,r1);
-    // int cnt2 = recount(a,l2,r2);
-
-    // int ans = cnt1 + cnt2;
-
-    // int L = max(l1,l2); // 5 
-    // int R = min(r1,r2); // 6
-
-    // if(L <= R ) ans  = ans - recount(a,L,R);
-    // cout << ans << endl;
-
-     // 1 6 = 2 
-     // l = 5 and r = 15
-
-     // if r1 > l2 cnt2 - cnt1 
-     // 5 15 = 4
 
     return 0;
 }

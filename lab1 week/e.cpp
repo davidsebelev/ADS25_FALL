@@ -29,6 +29,9 @@ for (int step = 1; step <= 1000000; step++) {
     bool boris_wins;
    int a = f.front(); f.pop_front();// boris
    int b = s.front(); s.pop_front(); // nursik
+   // если у бориса карта ноль то он бьет нурсика
+   // а если у нурсика ноль то он бьет бориса
+
 
         if (a == 0 && b == 9) {
         boris_wins = true;   // 0 бьёт 9 → Борис победил
@@ -43,7 +46,8 @@ for (int step = 1; step <= 1000000; step++) {
 
 
 
-
+    // победитель кладет карты в правильном порядке
+    // сначала бориса а потом нурсика
     if(boris_wins){
         f.push_back(a);
         f.push_back(b);
@@ -52,6 +56,7 @@ for (int step = 1; step <= 1000000; step++) {
         s.push_back(b);
     }
 
+    //если у кого то кончились карты то игра окончена
     if(f.empty()){
         cout << "Nursik" << " " <<   step;
         return 0;

@@ -1,11 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+// начинаем с пустой деки
+// кладем карту n в деку 
+// двигаемся от n к 1
+// каждый шаг берем карту i  и кладем ее в началл
+// потом делаем сдвиг влево на i%size значит двигаем хвост несколько раз
+// 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int t;
+    int t; // з
     cin >> t;
     while (t--) {
         int n;

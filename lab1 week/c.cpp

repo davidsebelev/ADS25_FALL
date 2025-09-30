@@ -6,6 +6,7 @@ using namespace std;
 
 
 int main(){
+    // обрабатываем два слова
     string line;
     getline(cin, line);
 
@@ -20,13 +21,14 @@ int main(){
     stack<char> st2;
 
     for(int i = 0 ; i < word1.length();i++){
+        // если стэк пуст и буква не равна штриху
         if(st1.empty() && word1[i] != '#'){
-            st1.push(word1[i]);
+            st1.push(word1[i]); // то пушаем
         }else if(word1[i] == '#'){
-            st1.pop();
+            st1.pop();// в противном случае удаляем 
         }
         else if(word1[i] != '#'){
-            st1.push(word1[i]);
+            st1.push(word1[i]); // если стэк не пуст то просто добавялем букву
         }
     }
     for(int i = 0 ; i < word2.length();i++){

@@ -33,6 +33,7 @@ int main(){
             }
             fr[ch]++;
             Node* cur = head;
+            // a b c a b c
             while(cur!=nullptr && fr[cur->data] < 2){
                 cur = cur->next;
             }

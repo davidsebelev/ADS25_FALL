@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+#include<algorithm>
 using namespace std;
 
 
@@ -35,11 +36,6 @@ int main(){
     int p;
     cin >> p;
 
-
-    // pair<int, int> r = checkPower(a,p);
-    // int cnt = r.first;  // первый элемент пары
-    // int sum = r.second;
-    // cout << cnt << " " << sum;
     while(p--){
         int l = -1;
         int r = n;
@@ -55,10 +51,6 @@ int main(){
             }
         }
         vector<int> p = pref_sum(a);
-        // cout << l  + 1<< endl;
-        // for(int i = 0 ; i < n ; i++){
-        //     cout << p[i] << " ";
-        // }
         cout << l + 1 << " " << p[l] << endl;
     }
 
