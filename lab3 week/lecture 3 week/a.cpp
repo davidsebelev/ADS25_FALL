@@ -1,47 +1,55 @@
 #include<iostream>
-#include<map>
 #include<vector>
 using namespace std;
+
+int bin_search(const vector<int>& row, int x,bool decreasing){
+    int l = 0 , r = row.size() - 1;
+
+    while(l <= r){
+        int mid = (l+r)/2;
+        if(row[mid] == x) return mid;
+        if(!decreasing){
+            if(row[mid] < x) l = mid + 1;
+            else r = mid - 1;
+        }else{
+            if(row[mid] > x) l = mid + 1;
+            else r = mid - 1;
+        }
+    }
+    return -1;
+}
 
 int main(){
     int t;
     cin >> t;
-
-    vector<int> el(t);
-    for(int i = 0; i < t ; i++) cin >> el[i];
+    vector<int> queries(t);
+    for (int i = 0; i < t; i++) cin >> queries[i];
 
     int n, m;
     cin >> n >> m;
+    vector<vector<int> > mat(n, vector<int>(m));
 
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < m; j++)
+            cin >> mat[i][j];
 
-    map<int, pair<int,int> > mp; 
-    map<int,int> ok;
-    int a[n][m];
-    for(int x = 0; x < n ; x++){
-        for(int y = 0 ; y < m; y++){
-            int v;
-            cin >> v;
-            mp[v] = make_pair(x,y);
-            ok[v] = 1;
+    for (int q : queries) {
+        bool found = false;
+        for (int i = 0; i < n && !found; i++) {
+
+            int left = mat[i][0], right = mat[i][m - 1];
+            if (left > right) swap(left, right);
+
+            if (q < left || q > right) continue; 
+
+            int pos = bin_search(mat[i], q, mat[i][0] > mat[i][m - 1]);
+            if (pos != -1) {
+                cout << i << " " << pos << "\n";
+                found = true;
+            }
         }
+        if (!found) cout << -1 << "\n";
     }
-
-
-   
-
     
-
-//     for(map<int, pair<int,int>>::iterator it = mp.begin(); it != mp.end(); it++){
-//     cout << it->first << " " << it->second.first << " " << it->second.second << endl;
-// }
-
-
-    for(int z = 0 ; z < t ; z++){
-        if(ok[el[z]] == 1) cout << mp[el[z]].first << " " << mp[el[z]].second << endl;
-        else cout << -1 << endl;
-    }
-
-    return 0;    
-
-
+    return 0;
 }
