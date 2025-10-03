@@ -32,6 +32,11 @@ BstNode* find_min(BstNode* root){
     return root;
 }
 
+BstNode* find_max(BstNode* root){
+    while(root->right != nullptr) root = root->right;
+    return root;
+}
+
 BstNode* deletionNode(BstNode* root, int data){
     if(root == nullptr) return root;
     else if(data < root->data) root->left = deletionNode(root->left, data);
