@@ -68,11 +68,10 @@ int main(){
         heap->insert(k);
     }
     ll sum = 0;
-    //for(int i = 0 ; i < 3; i++) cout << heap->extractMax() << " ";
+  
     while(x--){
         ll first = heap->extractMax();
         sum+=first;
-        //cout << sum << " ";
         heap->insert(first-1);
     }
     cout << sum << " ";

@@ -19,14 +19,15 @@ int main(){
     int cnt = 0;
     while(l + 1 < r){
         int m = (l + r)/ 2;
+        int sum = 0;
         for(int i = 0 ; i < n ;i++){
-            if(a[i] < m) cnt++;
+            sum += (a[i] + m - 1)/ m;
         }
-        if(cnt >=p) r = m;
-        else l = m;
+        if(sum >p) l = m;
+        else r = m;
     }
 
-    cout << cnt;
+    cout << r;
 
     return 0;
 }

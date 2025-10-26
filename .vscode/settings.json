@@ -3,6 +3,12 @@
         "iostream": "cpp",
         "map": "cpp",
         "vector": "cpp",
-        "ostream": "cpp"
-    }
+        "ostream": "cpp",
+        "queue": "cpp",
+        "stack": "cpp",
+        "unordered_map": "cpp"
+    },
+    "cSpell.words": [
+        "очередь"
+    ]
 }

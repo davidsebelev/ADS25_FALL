@@ -41,10 +41,7 @@ int main(){
     }
 
      Node* curr = head;
-    //  while(curr!= nullptr){
-    //     cout << curr->data << " ";
-    //     curr = curr ->next;
-    //  }
+
     cin >> k;
     int small = INT_MAX;
     vector<int> r;
@@ -60,31 +57,3 @@ int main(){
     cout << pos;
 }
 
-
-// int main(){
-//     int n,k;
-//     cin >> n;
-//     vector<int> num;
-//     while(n--){
-//         int x;
-//         cin >> x;
-//         num.push_back(x);
-//     }
-//     vector<int> res; // 2 3 5 1 3 4
-//     cin >> k;
-//     for(int i = 0 ; i < num.size();i++){
-//         int raz = abs(num[i] - k);
-//         res.push_back(raz);
-//     }
-//     int small = res[0]; // 2 // 1
-//     int count = 0;
-//     for(int i = 1 ;i < res.size();i++){
-//         if(small > res[i]){
-//             small  = res[i];
-//             count = i; 
-//         }
-//     }
-//     //cout << small  << endl;
-//     cout << count << endl;
-//     return 0;
-// }

@@ -78,13 +78,10 @@ int main(){
         cin >> x;
         heap->insert(x);
     }
-    //ll m = heap->a.size();
-    //for(int i = 0; i < m ;i++) cout << heap->extractMax() << " ";
-    //cout << "\n";
+
     while(heap->a.size() > 1){
         ll y = heap->extractMax();
         ll x = heap->extractMax();
-        //cout << x << " " << y << " ";
 
         ll temp = x;
         if(x == y) continue;

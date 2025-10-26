@@ -71,7 +71,6 @@ int main(){
         cin >> word;
         if(word == "print"){
             cout << sum << "\n";
-
         }
         else if(word == "insert" && heap->a.size() < k){
             ll x;

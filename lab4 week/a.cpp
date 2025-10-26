@@ -40,25 +40,7 @@ BstNode* mov(BstNode* root, string s){
 }
 
 
-// BstNode* Movement(BstNode* root,string s){
-//     for(int i = 0 ; i < s.size();i++){
-//         if(root != nullptr){
-//             if(s[i] == 'L' && root->left != nullptr) root = root->left;
-//             else if(s[i] == 'R' && root->right != nullptr) root = root->right;
-//             else if(s[i] == 'L' && root->left == nullptr){
-//                 return nullptr;
-//                 break;
-//             }else if(s[i] == 'R' && root->right == nullptr){
-//                 return nullptr;
-//                 break;
-//             }
-//         }else{
-//             return nullptr;
-//             break;
-//         }
-//     }
-//     return root;
-// }
+
 
 int main(){
     BstNode* root = nullptr;

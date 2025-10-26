@@ -61,16 +61,12 @@ int main(){
     // cout << "\n";
     // for(int i = 0 ; i< m ;i++) cout << s[i] << " ";
     // cout << "\n";
-
-     vector<int> r;
+    vector<bool> used(m, false);
+    vector<int> r;
     if(n > m){
         for(int i = 0; i < n ;i++){
             for(int j = 0 ; j < m ;j++){
-                int ff = b_find(f,s[j]);
-                if(ff != -1){
-                    r.push_back(f[ff]);
-                    f[ff] = INT_MAX;
-                }
+                
             }
             break;
         }

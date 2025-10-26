@@ -53,6 +53,6 @@ int main(){
     }
 
     maxHeight(root);
-    cout << MaxDim - 1 ;
+    cout << MaxDim;
     return 0;
 }

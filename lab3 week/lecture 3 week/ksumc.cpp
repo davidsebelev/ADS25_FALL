@@ -5,7 +5,7 @@ using namespace std;
 bool check(vector<int> &pref,int m,int k){
     bool ok =0;
     for(int i = 0 ; i + m <= pref.size(); i++){
-            if(pref[i+m-1] - pref[i -1] >=k){
+            if(pref[i+m] - pref[i] >=k){
                 ok = 1;
                 break;
             }
@@ -23,7 +23,7 @@ int main(){
 
     vector<int> pref(n+1);
     pref[0] = 0;
-    for(int i = 1 ; i < n ;i++) pref[i] = pref[i-1 ] + a[i-1];
+    for(int i = 1 ; i <= n ;i++) pref[i] = pref[i-1 ] + a[i-1];
 
     int l = 0;
     int r = n + 1;

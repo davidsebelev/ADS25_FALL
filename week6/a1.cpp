@@ -86,17 +86,5 @@ int main(){
         for(int i = 0 ; i < c.size();i++) cout << c[i];
         }
     }
-    // int l = 0;
-    // int r = v.size()-1;
-    // quick_sort(v,l,r);
-
-    // int l2 = 0;
-    // int r2 = c.size()-1;
-    // quick_sort2(c,l2,r2);
-
-    // for(int i = 0 ; i < v.size();i++) cout << v[i];
-    // for(int i = 0 ; i < c.size();i++) cout << c[i];
-
-
     return 0;
 }
