@@ -12,7 +12,6 @@ int main(){
         if(s[i] == '4' || s[i] == '7')cnt++;
     }
     
-    //cout << cnt;
 
     if(cnt == 4 || cnt == 7 )cout << "YES";
     else cout << "NO";
