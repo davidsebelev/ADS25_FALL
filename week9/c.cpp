@@ -29,8 +29,6 @@ int main() {
 
 
     string s = s1 + "#" + s2+s2;
-    // cout << s;
-    // cout << "\n";
 
     int n = s1.size();
     int s_i = 0;
@@ -44,16 +42,6 @@ int main() {
             break;
         }
     }
-    // cout << s_i << "\n";
-    // // cout << "\n";
-    // for(int i = 0 ; i < p.size();i++){
-    //     cout << p[i] << " ";
-    // }
-    // cout << "\n";
-    // for(int i = 0 ; i < p.size();i++){
-    //     cout << i << " ";
-    // }
-    // cout << "\n";
 
     if(fl) cout << s_i - n - 1;
     else cout << -1;

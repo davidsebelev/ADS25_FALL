@@ -45,27 +45,18 @@ int main() {
         cin >> x;
         string a ="";
         for(auto j : x)a+=tolower(j);
-         //cout << a << "\n";
         w.push_back(x);
         s = a + "#" +  s;
 
         vector<int> p = pref(s);
-        // for(auto i : p )cout << i << " ";
-        // cout << "\n";
 
-        //cout << s << "\n";
         int new_max = p[p.size() - 1];
-        //cout << new_max << "\n";
-
         rrr.push_back(new_max);
 
         s = s_p;
  
     }
 
-    //for(auto i : rrr)cout << i << " ";
-
-    //cout << "\n";
     if(rrr.empty()){
         cout << 0;
         return 0;
@@ -75,7 +66,6 @@ int main() {
         maxx = max(maxx,rrr[i]);
     }
 
-    //cout << maxx;
 
     if(maxx == 0){
         cout << 0;
@@ -91,7 +81,7 @@ int main() {
     cout << f_r.size() << "\n";
 
     for(auto i : f_r)cout << i << "\n";
-    //cout << maxx;
+
     
     return 0;
 }

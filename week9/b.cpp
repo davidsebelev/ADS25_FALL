@@ -39,7 +39,7 @@ int main() {
     vector<int> pref = pref_s(res);
     int cnt = 0;
     for(int i = 0 ; i < pref.size();i++){
-        if(pref[i] == k.size())cnt++;
+        if(pref[i] == p.size())cnt++;
     }
 
     if(cnt >= k)cout << "YES";
