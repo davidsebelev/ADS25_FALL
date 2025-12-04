@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<int> v;
+vector<vector<int> > g;
+
+void dfs(int s){
+    v[s] = 1;
+
+    for(int i = 0 ; i < g[s].size();i++){
+        int u =g[s][i];
+        if(!v[u]){
+            dfs(u);
+        }
+    }
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int n,m;
+    cin >> n >> m;
+
+    g.assign(n,{});
+    v.assign(n,0);
+
+    int cnt = 1;
+    for(int i = 0 ; i < m ; i++){
+        int x,y;
+        cin >> x >> y;
+        x--;
+        y--;
+        g[x].push_back(y);
+        g[y].push_back(x);
+    }
+
+    for(int i = 0 ; i < v.size();i++){
+        if(!v[i]){
+            dfs(i);
+            cnt++;
+        }
+    }
+
+    cout << cnt;    
+    return 0;
+}

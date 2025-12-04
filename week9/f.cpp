@@ -32,8 +32,6 @@ int main() {
     vector<int> rr;
     vector<int> p = pref(r);
 
-    // for(auto i : p) cout << i << " ";
-    // cout << "\n";
     int n = s1.size();
     for(int i = 0 ; i < p.size();i++){
         if(p[i] == m && p[i-m+1] == 1){
@@ -41,9 +39,6 @@ int main() {
         }
     }
 
-    // for(auto i : p){
-    //     if(i >= 1)r.push_back(i);
-    // }
     cout << rr.size() << "\n";
     for(auto i : rr)cout << i << " ";
 

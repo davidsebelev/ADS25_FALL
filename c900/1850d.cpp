@@ -65,6 +65,14 @@ int main() {
     for(auto i : r1)min1 = min(i,min1);
     for(auto i : r2)min2 = min(i,min2);
 
+    //1 3 3 4 5 7 8 10 
+    //10
+    //1 3 3 4 5 7 8
+
+
+    //8 3 1 4 5 10 7 3 
+    //3
+    //8 3 1 4 5 10 7
     cout << min(min1,min2) << "\n";
     
     return 0;

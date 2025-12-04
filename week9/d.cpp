@@ -57,23 +57,8 @@ int main() {
         }
         res.push_back(maxx);
         s = s_p;
-        //cout << "\n";
     }
 
-    // int maxx = INT_MIN;
-    // for(int i = 0 ; i < res.size();i++){
-    //     maxx = max(maxx,res[i]);
-    // }
-
-    // vector<string>f_r;
-    // for(int i = 0 ; i < res.size();i++){
-    //     if(res[i] == maxx)f_r.push_back(w[i]);
-    // }
-
-    // cout << f_r.size() << "\n";
-
-    // for(auto i : f_r)cout << i << "\n";
-    //cout << maxx;
     
     return 0;
 }

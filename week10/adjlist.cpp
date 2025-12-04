@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+const int maxN = 100;
+vector<int> g[maxN];
+
+int n,m,x,y;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    cin >> n >> m;
+    for(int i = 0 ; i < m ;i++){
+        cin >> x >> y;
+
+        x--;
+        y--;
+        
+        g[x].push_back(y);
+        g[y].push_back(x);
+    }
+
+    for(int i = 0 ; i < n ;i++){
+        cout << i << " --- ";
+        for(int j = 0; j< g[i].size();j++){
+            cout << g[i][j] << " ";
+        }
+        cout << "\n";
+    }
+
+
+    
+    return 0;
+}
