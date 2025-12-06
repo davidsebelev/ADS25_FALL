@@ -1,56 +1,51 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 typedef long long ll;
 
-const int INF = 1e9;
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int n,m,x,y,w;
+    int n, m;
     cin >> n >> m;
 
-    vector<vector<pair<int,ll>>> g(n);
+    vector<vector<pair<int,int>>> left(n + 1);
 
-    while(m--){
-        cin >> x >> y >> w;
-        --x; --y;
-        for(int i = x ; i < y ;i++){
-        g[i].push_back({i + 1, w});
-        g[i + 1].push_back({i, w});
-        }
+    for(int i = 0; i < m; i++){
+        int a, b, w;
+        cin >> a >> b >> w;
+        --a; --b;                       
+        left[a].push_back({b, w});     
     }
 
+    priority_queue<
+        pair<int,int>,
+        vector<pair<int,int>>,
+        greater<pair<int,int>>
+    > pq;
 
-    vector<ll> d(n,INF);//минимальная стоимость
-    vector<ll> p(n,-1);//откуда мы пришли?
-    vector<char> u(n,0);//включена ли вершина в мст
+    ll total = 0;
 
-    d[0] = 0;
-    for(int i = 0 ; i < n ;i++){
-        int v = -1;
-        for(int j = 0 ; j < n ;j++){
-            if(!u[j]){
-                if(v == -1 || d[v] > d[j]){
-                    v = j;
-                }
-            }
+    for(int i = 0; i < n - 1; i++) {
+
+        for(auto p : left[i]){
+            pq.push({p.second, p.first});   
         }
-        u[v] = 1;
 
-        for(int i = 0 ; i < g[v].size();i++){
-            ll k = g[v][i].first;//сосед
-            ll l = g[v][i].second;// вес ребра
 
-            if(!u[k] && l < d[k]){
-                d[k] = l;
-                p[k] = v;
-            }
+        while(!pq.empty() && pq.top().second <= i){
+            pq.pop();
         }
+
+        if(pq.empty()){
+            cout << 0;
+            return 0;
+        }
+
+        total += pq.top().first;
     }
-    ll sum = 0;
-    for(ll i : d)sum+=i;
-    cout << sum;
-    
+
+    cout << total;
     return 0;
 }
